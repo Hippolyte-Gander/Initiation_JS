@@ -12,21 +12,24 @@
     <div id="board"></div>
 
     <script>
-
         function shuffleChildren(parent){
             let children = parent.children
             let i = children.length, k, temp
             while(--i > 0){
-                //k stocke le nombre aléatoire basé sur i
-                k = Math.floor(Math.random() * (i+1))
-                // temp point temporairement l'élément à la position k dans le board
-                temp = children[k]
-                //remplace l'élément à la position k par l'élément à la position i
-                children[k] = children[i]
-                // place l'élément k pointé temporairement à la fin du contenu de board
-                parent.appendChild(temp)
+                k = Math.floor(Math.random() * (i+1))//k stocke le nombre aléatoire basé sur i
+                temp = children[k]// temp point temporairement l'élément à la position k dans le board
+                children[k] = children[i] //remplace l'élément à la position k par l'élément à la position i
+                parent.appendChild(temp)// place l'élément k pointé temporairement à la fin du contenu de board
             }
+        }
 
+        function showReaction(type, clickedBox){
+            clickedBox.classList.add(type)
+            if(type !== "success"){
+                setTimeout(function(){
+                    clickedBox.classList.remove(type)
+                }, 800)
+            }
         }
 
         const box = document.createElement("div")
@@ -34,17 +37,43 @@
 
         const board = document.querySelector("#board")
 
+        let nb = 1
+
         for(let i=1; i<=10; i++){
             let newbox = box.cloneNode()
             newbox.innerText = i
             board.appendChild(newbox)
+
+            newbox.addEventListener("click", function(){
+
+                if(i == nb){
+                    newbox.classList.add("box-valid")
+                    if(nb == board.children.length){
+                        board.querySelectorAll(".box").forEach(function(box){
+                            showReaction("success", box)
+                        })
+                    }
+                    nb++
+                }
+                else if(i > nb){
+                    showReaction("error", newbox)
+                    nb = 1
+                    board.querySelectorAll(".box-valid").forEach(function(validBox){
+                        validBox.classList.remove("box-valid")
+                    })
+                }
+                // 3
+                else{
+                    showReaction("notice", newbox)
+                }
+            })
         }
-
+        
         shuffleChildren(board)
-
-//arret page 17 du pdf
-
-
+        
+        
+        
+        // console.log("Boîte n°"+ i +", click !")
 
     </script>
 </body>

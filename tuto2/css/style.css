@@ -14,11 +14,17 @@
     margin: 5px;
     animation: appear 1s;
     border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.8s, color 0.8s, transform 0.8s;
 }
-.box-clicked{
+.box-valid{
     background-color: #ccc;
     color: #aaa;
+    transform: scale(0.8);
 }
+.box.error{color: red; background-color: lightcoral;}
+.box.success{color:green; background-color: lightgreen;}
+.box.notice{color: blue; background-color: lightseagreen;}
 
 @keyframes appear{
     from{
