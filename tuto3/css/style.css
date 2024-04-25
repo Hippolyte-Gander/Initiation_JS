@@ -3,16 +3,25 @@
     margin: 0;
 }
 
-.todoCards{
+h1{
     display: flex;
-    width: 100%;
-    border: solid red;
+    justify-content: center;
+}
+
+#todo{
+    /* display: flex; */
+}
+
+#todoCards{
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .todoCard{
     position: relative;
     display: flex;
-    width: 30%;
+    width: 200px;
+    margin: 5px;
 }
 
 .task{
