@@ -1,38 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/css/style.css">
     <title>TODO</title>
 </head>
+
 <body>
     <h1>Todo list</h1>
 
     <div id="todo">
         <button id="btn">Add a task</button>
+        <div id="compteur">A</div>
         <div id="todoCards">
-            <div id="blocNote" class="todoCard">
-                <textarea class="task" maxlength="200" cols="20" rows="15">New task</textarea>
+            <div class="todoCard">
+                <textarea class="task" maxlength="200" cols="20" rows="15">New Task n°1</textarea>
                 <span class="delBtn"><i class="fa-solid fa-trash-can"></i></span>
             </div>
         </div>
     </div>
 
     <script>
-        const poubelle = document.getElementsByClassName("delBtn");
-        const todoCard = document.getElementsByClassName("todoCard");
-        const blocTodoCards = document.getElementById("todoCards")
-        const todoCards = document.getElementById("blocNote")
+        
+        const myTextArea = document.querySelector(".task");
         const btn = document.getElementById("btn");
+        const cardsList = document.getElementById("todoCards")
+        const todoCard = document.querySelector(".todoCard");
+        const delBtn = document.querySelector(".delBtn");
+        let totalCounter = 1;
+        let counter = 1
+        
+        const myTextCounter = document.getElementById("compteur");
+        document.getElementById("compteur").value = "Number of tasks : " + counter;
+        
+        delBtn.addEventListener("click", function(){
+            delBtn.parentNode.remove();
+            counter--;
+        });
+        
+        todoCard.classList.add("firstCard");
+        
+        
+        function createNewCard(){
+            totalCounter++;
+            counter++;
+            let newTodoCard = todoCard.cloneNode(true);
+            newTodoCard.querySelector(".task").value = "New Task n°" + counter;
+            newTodoCard.classList.add(".todoCard");
+            let newdelBtn = delBtn.cloneNode(true);
+            cardsList.appendChild(newTodoCard);
+            newTodoCard.appendChild(newdelBtn);
+            newdelBtn.addEventListener("click", function(){
+                newdelBtn.parentNode.remove();
+                counter--;
+            });
+        }
+        
+        todoCard.length;
+        
 
-        btn.addEventListener("click", function(){
-            let newTodoCards = todoCards.cloneNode(true);
-            todoCards.parentNode.appendChild(newTodoCards);
-        })
+        
+
+
+        btn.addEventListener("click", createNewCard);
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //-------------2eme test------------------------
+
+        // function deleteTask(elementASuppr) {
+        //     elementASuppr.parentNode.remove(elementASuppr)
+        // }
+
+        // btn.addEventListener("click", function () {
+        //     todoCard.forEach(element => {
+        //         let newTodoCard = element.cloneNode(true);
+        //         cardsList.appendChild(newTodoCard);
+        //         const newDelBtn = newTodoCard.querySelector(".delBtn")
+        //     });
+        //     //-------- nouveau bouton poubelle
+        //     newDelBtn.addEventListener("click", function () {
+        //         deleteTask(newTodoCard);
+        //     })
+        // });
+        
+        //-------------1er test------------------------
+        // let newPoubelleButton = delBtn.cloneNode(true);
+        // cardsList.appendChild(newPoubelleButton);
+        
+
+        // delBtn.forEach(boutonPoubelle => {
+        //     boutonPoubelle.addEventListener("click", function () {
+        //         boutonPoubelle.parentNode.remove();
+        //     });
+        // });
+
+
 
     </script>
 
 </body>
+
 </html>

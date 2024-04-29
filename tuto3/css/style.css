@@ -1,48 +1,56 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-h1{
+h1 {
     display: flex;
     justify-content: center;
 }
 
-#todo{
-    /* display: flex; */
+#todo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-#todoCards{
+#btn {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+#compteur{
+    display: flex;
+}
+
+#todoCards {
     display: flex;
     flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
 }
 
-.todoCard{
+.todoCard {
     position: relative;
     display: flex;
     width: 200px;
     margin: 5px;
 }
 
-.task{
+.task {
     display: flex;
     width: 100%;
 }
 
-.delBtn{
+.delBtn {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
+    bottom: 10px;
+    right: 10px;
 }
 
-.delBtn i{
-    cursor: pointer;
-}
-
-#btn{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    margin: 20px 0;
+.delBtn i {
     cursor: pointer;
 }
