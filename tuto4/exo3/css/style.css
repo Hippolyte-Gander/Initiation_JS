@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+.ligne{
+    display: flex;
+    flex-direction: row;
+}
+
+.box{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(66, 173, 66, 0.788);
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: 2s;
+    cursor: pointer;
+}
+
+.boxClicked{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    transition: 1s;
+    background-color: rgba(255, 0, 0, 0.658);
+    transform: rotate(360deg) scale(0.9);
+    cursor: pointer;
+}
