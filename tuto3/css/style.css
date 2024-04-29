@@ -1,11 +1,17 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 h1 {
     display: flex;
     justify-content: center;
+    margin: 20px;
+    font-weight: 900;
+    background-color: darkgoldenrod;
+    color: #fff;
+    border-radius: 15px;
 }
 
 #todo {
@@ -17,13 +23,32 @@ h1 {
 #btn {
     display: flex;
     justify-content: center;
-    width: 90%;
-    margin: 20px 0;
+    width: 200px;
+    padding: 15px;
+    margin: 30px 10px;
     cursor: pointer;
+    background-color: rgb(0, 82, 0);
+    color: rgb(255, 230, 0);
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 15px;
+}
+
+#toto #compteur{
+    align-items: end;
 }
 
 #compteur{
     display: flex;
+    width: 200px;
+    height: 80px;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+    background-color: darkblue;
+    color: #fff;
+    padding: 10px;
+    border-radius: 15px;    
 }
 
 #todoCards {
@@ -37,9 +62,21 @@ h1 {
     position: relative;
     display: flex;
     width: 200px;
-    margin: 5px;
-}
-
+    min-height: 250px;
+    max-height: 450px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: rgba(127, 225, 255, 0.4) 5px 5px, rgba(127, 235, 212, 0.3) 10px 10px, rgba(127, 220, 212, 0.2) 15px 15px, rgba(127, 205, 212, 0.1) 20px 20px, rgba(127, 185, 212, 0.05) 25px 25px;}
+    
+    .todoCard textarea{
+        border-radius: 5px;
+        padding: 6px;
+        background-color: rgb(127, 255, 212);
+        min-height: 250px;
+        max-height: 450px;
+        min-width: 100px;
+    }
+    
 .task {
     display: flex;
     width: 100%;

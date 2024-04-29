@@ -16,7 +16,7 @@
 
     <div id="todo">
         <button id="btn">Add a task</button>
-        <div id="compteur">A</div>
+        <div id="compteur">Compteur</div>
         <div id="todoCards">
             <div class="todoCard">
                 <textarea class="task" maxlength="200" cols="20" rows="15">New Task n°1</textarea>
@@ -36,7 +36,10 @@
         let counter = 1
         
         const myTextCounter = document.getElementById("compteur");
-        document.getElementById("compteur").value = "Number of tasks : " + counter;
+
+        function majCompteur(){
+            document.getElementById("compteur").innerHTML = "Number of tasks : " + counter;
+        }
         
         delBtn.addEventListener("click", function(){
             delBtn.parentNode.remove();
@@ -50,7 +53,7 @@
             totalCounter++;
             counter++;
             let newTodoCard = todoCard.cloneNode(true);
-            newTodoCard.querySelector(".task").value = "New Task n°" + counter;
+            newTodoCard.querySelector(".task").value = "New Task n°" + totalCounter;
             newTodoCard.classList.add(".todoCard");
             let newdelBtn = delBtn.cloneNode(true);
             cardsList.appendChild(newTodoCard);
@@ -58,15 +61,12 @@
             newdelBtn.addEventListener("click", function(){
                 newdelBtn.parentNode.remove();
                 counter--;
+                majCompteur()
             });
+            majCompteur()
         }
-        
-        todoCard.length;
-        
 
-        
-
-
+        majCompteur()
         btn.addEventListener("click", createNewCard);
         
         
