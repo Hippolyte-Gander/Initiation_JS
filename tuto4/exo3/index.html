@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
     <section class="ligne">
         <div class="box"></div>
@@ -25,24 +27,34 @@
 
     <script>
         const box = document.querySelectorAll(".box")
+        let countBoxClicked = box.length; console.log(countBoxClicked);
+
+        function setXorO() {
+            let resultModulo = countBoxClicked % 2
+            if (resultModulo = 0) {
+                boite.innerHTML = "X";
+            } else {
+                boite.innerHTML = "O";
+            }
+        }
 
         function fromBoxToClicked() {
-            if (this.className=="boxClicked") {
-                this.classList.remove("boxClicked")
-                this.classList.add("box")
-                this.value
-                console.log("maintenant box")
-            } else {
-                this.classList.add("boxClicked")
-                console.log("maintenant clicked")
-                this.classList.remove("box")
-            }}
+            this.classList.add("boxClicked")
+            console.log("maintenant clicked")
+            this.classList.remove("box")
+            setXorO()
+        }
 
-        box[0].addEventListener("click", fromBoxToClicked)
-        box[1].addEventListener("click", fromBoxToClicked)
-        box[2].addEventListener("click", fromBoxToClicked)
-        box[3].addEventListener("click", fromBoxToClicked)
-box.html
+        box.forEach(boite => {
+            if (boite.className == "box") {
+                boite.addEventListener("click", fromBoxToClicked)
+            } else {
+                boite.addEventListener("click", function () {
+                    console.log("box déjà clicked")
+                })
+            }
+        });
+
     </script>
 
 
@@ -50,4 +62,5 @@ box.html
 
 
 </body>
+
 </html>
