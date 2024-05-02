@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <div id="status">C'est à X de commencer</div>
     <section class="ligne">
         <div class="box"></div>
         <div class="box"></div>
@@ -27,14 +28,24 @@
 
     <script>
         const box = document.querySelectorAll(".box")
-        let countBoxClicked = box.length; console.log(countBoxClicked);
+        const message = document.getElementById("status")
+        let countBox = box.length;
 
         function setXorO() {
-            let resultModulo = countBoxClicked % 2
-            if (resultModulo = 0) {
-                boite.innerHTML = "X";
+            countBox--;
+            console.log(countBox);
+            let resultModulo = countBox % 2
+            if (resultModulo == 0) {
+                if (countBox == 0) {
+                    this.innerText = "X";
+                    message.innerText = ("Partie terminée");
+                } else {
+                    this.innerText = "X";
+                    message.innerText = ("C'est au tour de O");
+                }
             } else {
-                boite.innerHTML = "O";
+                this.innerText = "O";
+                message.innerText = ("C'est au tour de X");
             }
         }
 
@@ -42,17 +53,17 @@
             this.classList.add("boxClicked")
             console.log("maintenant clicked")
             this.classList.remove("box")
-            setXorO()
+            setXorO.bind(this)()
         }
 
         box.forEach(boite => {
-            if (boite.className == "box") {
-                boite.addEventListener("click", fromBoxToClicked)
-            } else {
-                boite.addEventListener("click", function () {
+            boite.addEventListener("click", function () {
+                if (this.className == "box") {
+                    fromBoxToClicked.call(this)
+                } else {
                     console.log("box déjà clicked")
-                })
-            }
+                }
+            })
         });
 
     </script>
