@@ -1,0 +1,7 @@
+Énoncé exercice :
+
+Afficher des citations depuis un fichier JS
+Pour cela il faudra :
+- Créer un fichier quotes.js dans lequel instancier un tableau associatif
+- Créer un fichier JS parcourant les citations afin de les afficher
+- Rajouter un système de favoris
