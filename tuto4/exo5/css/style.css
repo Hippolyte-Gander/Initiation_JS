@@ -1,10 +1,58 @@
 *{
     margin: 0;
     padding: 0;
+    font-size: 18px;
 }
 
-ul {
+h1 {
+    margin: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.main ul {
     display: flex;
+    align-items: center;
     justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.main li {
+    flex-direction: column;
+    flex-wrap: wrap;
+    display: flex;
+    width: fit-content;
+    list-style: none;
+    text-align: end;
+    cursor: pointer;
+}
+
+.contentCitation {
+    text-align: center;
+    margin: 20px;
+    padding: 30px;
+    font-weight: 100;
+    font-style: oblique;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    border-radius: 15px;
+}
+
+li i {
+    margin-top: 10px;
+    text-align: end;
+    color: black;
+}
+
+.authorCitation {
+    text-align: end;
+    margin-top: 20px;
+    font-size: 15px;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.baliseI {
     border: solid red;
 }

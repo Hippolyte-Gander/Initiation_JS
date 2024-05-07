@@ -16,26 +16,11 @@ let quotes = [
         "author": "Maître Yoda",
         "title": "Star Wars",
         "content": "La peur mène à  la colère, la colère mène à la haine, et la haine mène à  la souffrance."
+    },
+    {
+        "id" : 4,
+        "author": "Bob",
+        "title": "Lenon",
+        "content": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. At iure cum blanditiis consequuntur, placeat nisi quaerat doloremque dolorem eius minima sapiente sequi asperiores corrupti quos distinctio impedit? Repudiandae, a quibusdam. Recusandae optio, unde deleniti quae suscipit aliquid eum laboriosam incidunt."
     }
 ];
-
-function generateListItems (liste) {
-    let items = "";
-    for (let i = 0; i < liste.length; i++) {
-        items += `<li>${liste[i]}</li>`;
-        const citations = quotes.map((citation => {
-            return citation.content;
-        }
-        ))
-    }
-    return items;
-}
-
-document.querySelector(".main").innerHTML = `
-<ul>
-${generateListItems(quotes)}
-</ul>
-`;
-
-
-// module.exports = quotes;
