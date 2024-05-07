@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <div class="box"></div>
+    </section>
+
+    <script>
+        const box = document.querySelector(".box")
+        const section = document.querySelector("section")
+        
+        function fromBoxToClicked() {
+            this.classList.add("boxClicked")
+            console.log("maintenant clicked")
+            // this.classList.remove("box")
+            this.style.backgroundColor = "rgb(" + 0 + "," + 0 + "," + 0 + ")";
+        }
+        
+        function RGBcolor() {
+            let R = Math.floor(Math.random() * 256);
+            let G = Math.floor(Math.random() * 256);
+            let B = Math.floor(Math.random() * 256);
+            return "rgb(" + R + "," + G + "," + B + ")";  
+        }
+
+        function createNewBox() {
+            let newBox = box.cloneNode(true);
+            newBox.classList.add(".box");
+            section.appendChild(newBox);
+            let newRandomColor = RGBcolor ();
+            newBox.style.backgroundColor = newRandomColor;
+        }
+
+        function deleteNewBox() {
+            let ele = document.querySelectorAll(".box");
+            let lastEle = ele[ ele.length-1 ];
+            lastEle.parentNode.removeChild(lastEle);
+        }
+
+        document.addEventListener(
+            "keydown",
+            (event) => {
+                const keyName = event.key;
+
+                if (keyName === "ArrowDown") {
+                    createNewBox();
+                    console.log("ArrowDown pressed")
+                }
+                if (keyName === "ArrowUp") {
+                    deleteNewBox();
+                    console.log("ArrowUp pressed")
+                }
+            })
+
+        document.querySelector("section").addEventListener("click", function(event) {
+            if (event.target.classList.contains("box")) {
+                fromBoxToClicked.call(event.target);
+            }
+        });
+    </script>
+
+
+
+
+
+</body>
+
+</html>

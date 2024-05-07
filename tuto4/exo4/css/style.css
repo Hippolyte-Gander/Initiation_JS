@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    display: flex;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    flex-wrap: wrap;
+}
+
+.box {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    background-color: rgba(66, 173, 66, 0.788);
+    cursor: pointer;
+}
