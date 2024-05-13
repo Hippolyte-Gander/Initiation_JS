@@ -53,6 +53,6 @@ li i {
     font-style: normal;
 }
 
-.baliseI {
-    border: solid red;
+.baliseIClicked i{
+    color: red;
 }
