@@ -20,7 +20,7 @@
         const box = document.querySelectorAll(".box")
 
         function fromBoxToClicked() {
-            if (this.className=="boxClicked") {
+            if (this.className=="boxClicked") { // plutôt que remove et add les classes CSS, j'aurais pu utiliser "toggle"
                 this.classList.remove("boxClicked")
                 this.classList.add("box")
                 console.log("maintenant box")
